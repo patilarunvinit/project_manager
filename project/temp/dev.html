@@ -1,0 +1,20 @@
+<div>welcome {{email}}</div>
+{% for i in data1 %}
+{% if i.asignto == email %}
+
+<h1>{{i.name}}</h1>
+<form method="post">
+     {% csrf_token %}
+     <div style="display:none">
+         <input name="name" value={{i.name}}>
+     </div>
+     <label for="cars">give status ==></label>
+                  <select id="cars" name="status">
+                     <option value="start">start</option>
+                     <option value="end">end</option>
+                     <option value="complated">complated</option>
+                  </select><br>
+     <button class="button1" type="submit"><strong>submite</strong></button><br>
+</form>
+{% endif %}
+{% endfor %}

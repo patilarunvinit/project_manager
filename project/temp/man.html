@@ -1,0 +1,49 @@
+<h1>to assign task</h1>
+{% for i in data1 %}
+{% if i.task %}
+{% else %}
+<h2>{{i.name}}</h2>
+<form method="post">
+     {% csrf_token %}
+     <div style="display:none">
+         <input name="name" value={{i.name}}>
+     </div>
+
+     <label >task</label><br>
+     <input type="text"  name="task"><br>
+
+     <label >assignedto</label><br>
+     <input type="text"  name="asignto"><br>
+
+     <button class="button1" type="submit"><strong>Submit</strong></button><br>
+</form>
+{% endif %}
+{% endfor%}
+
+
+
+<h1>to review and change stetus of task</h1>
+{% for i in data1 %}
+{% if i.task %}
+
+<h2>{{i.name}}</h2>
+<form method="post">
+     {% csrf_token %}
+     <div style="display:none">
+         <input name="name" value={{i.name}}>
+     </div>
+
+     <label >add review</label><br>
+     <input type="text"  name="review"><br>
+
+     <label for="option">change status ==></label>
+                  <select id="option" name="status">
+                     <option value="complated">complated</option>
+                     <option value="not complated">not complated</option>
+                  </select><br>
+     <button class="button1" type="submit"><strong>Submit</strong></button><br>
+</form>
+{% else %}
+{% endif %}
+{% endfor %}
+
